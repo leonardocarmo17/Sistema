@@ -62,13 +62,13 @@ if (isset($_POST['submit'])) {
 
                 $mail->isSMTP();
                 $mail->SMTPAuth = true;
-                $mail->Username = 'leonardocarmoc@gmail.com';  //Seu email
-                $mail->Password = 'qaoc scic ioop hppi'; // Codigo para ser enviado, senha gerada pelo google
+                $mail->Username = 'xxxxxxxxxxx@gmail.com';  //Seu email
+                $mail->Password = 'xxxx xxxx xxxx xxxx'; // Codigo para ser enviado, senha gerada pelo google
                 $mail->SMTPSecure = 'tls'; 
                 $mail->Host = 'smtp.gmail.com';
                 $mail->Port = 587;
                 
-                $mail->setFrom('leonardocarmoc@gmail.com', 'Verificar Conta');
+                $mail->setFrom('xxxxxxxxxxx@gmail.com', 'Verificar Conta');
                 $mail->addAddress($email, $nome);
                 $mail->isHTML(true);
                 $mail->Subject = $nome . ', Verifique sua Conta.';
