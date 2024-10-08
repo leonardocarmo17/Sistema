@@ -12,9 +12,9 @@ No projeto, temos três categorias de usuários com diferentes permissões: Usu�
 
 *Caso o usuário ou admin esqueça sua senha, há uma opção de recuperação na página de login. Ao informar o email cadastrado, o sistema enviará uma nova senha criptografada, garantindo a segurança dos dados.*
 
-**Login e senha para admin secundário: leonardocarmoc5@gmail.com, leonardocarmoc5@gmail.com** <br>
-**Login e senha para admin primário: Admin@gmail.com, admin**
+**Login e senha para admin secundário: `leonardocarmoc5@gmail.com`, `leonardocarmoc5@gmail.com`** <br>
+**Login e senha para admin primário: `Admin@gmail.com`, `admin`**
 
  
-***Link de Acesso: http://sistemacriadocomphp.great-site.net/ ***
+**Link de Acesso: http://sistemacriadocomphp.great-site.net/**
 
