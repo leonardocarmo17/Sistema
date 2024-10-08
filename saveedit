@@ -1,0 +1,78 @@
+<?php
+if (isset($_POST['update'])) {
+    include_once('conexao.php');
+    $id = $_POST['id'];
+    $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
+    $sobre = mysqli_real_escape_string($conexao, $_POST['sobre']);
+    $email = mysqli_real_escape_string($conexao, $_POST['email']);
+    $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
+    $data_nascimento = mysqli_real_escape_string($conexao, $_POST['data_nascimento']);
+    $delete_image = $_POST['delete_image'];
+    $nivel = (int) $_POST['niveldeacesso'];
+
+    $error = ''; 
+    
+   
+    if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] == 0) {
+        $arquivo = $_FILES['arquivo'];
+        $nomeDoArquivo = $arquivo['name'];
+        $extensao = strtolower(pathinfo($nomeDoArquivo, PATHINFO_EXTENSION));
+        $pasta = "../arquivos/";
+        $novoNomeDoArquivo = uniqid() . '.' . $extensao;
+        $path = $pasta . $novoNomeDoArquivo;
+
+   
+        if ($arquivo['size'] > 2000000) { 
+            $error = "Arquivo muito grande, máximo de 2MB. <br> <a href='sistema.php'>Voltar</a>";
+        } elseif (!in_array($extensao, ['jpg', 'jpeg', 'png', 'gif'])) {
+            $error = "Tipo de arquivo não aceito. Permitido: jpg, jpeg, png, gif. <br> <a href='sistema.php'>Voltar</a>";
+        } elseif (!move_uploaded_file($arquivo['tmp_name'], $path)) {
+            $error = "Falha ao mover arquivo para a pasta de upload. <br> <a href='sistema.php'>Voltar</a>";
+        } else {
+          
+            $sql = "UPDATE usuarios SET nome=?, sobre=?, email=?, senha=?, data_nasc=?, path=?, niveldeacesso=? WHERE id=?";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bind_param("ssssssii", $nome, $sobre, $email, $senha, $data_nascimento, $path, $nivel, $id);
+        }
+    } else {
+       
+        if ($delete_image == "1") {
+       
+            $sql = "SELECT path FROM usuarios WHERE id=$id";
+            $result = $conexao->query($sql);
+            if ($result->num_rows > 0) {
+                $user_data = mysqli_fetch_assoc($result);
+                $current_image_path = $user_data['path'];
+                if (file_exists($current_image_path)) {
+                    unlink($current_image_path); 
+                }
+            }
+            $sql = "UPDATE usuarios SET nome=?, sobre=?, email=?, senha=?, data_nasc=?, path=NULL, niveldeacesso=? WHERE id=?";
+        } else {
+            $sql = "UPDATE usuarios SET nome=?, sobre=?, email=?, senha=?, data_nasc=?, niveldeacesso=? WHERE id=?";
+        }
+        $stmt = $conexao->prepare($sql);
+        if ($delete_image == "1") {
+            $stmt->bind_param("sssssii", $nome, $sobre, $email, $senha, $data_nascimento, $nivel, $id);
+        } else {
+            $stmt->bind_param("sssssii", $nome, $sobre, $email, $senha, $data_nascimento, $nivel, $id);
+        }
+    }
+
+
+    if (!empty($sql)) {
+        $result = $stmt->execute();
+        if ($result) {
+            header('Location: sistema.php');
+        } else {
+            echo "Erro ao atualizar o cadastro";
+        }
+    } else {
+        if (!empty($error)) {
+            echo $error;
+        } else {
+            echo "Erro: A consulta SQL está vazia";
+        }
+    }
+}
+?>

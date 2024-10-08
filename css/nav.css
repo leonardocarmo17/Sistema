@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f3f0f0;
+    align-items: center;
+    justify-content: right;
+    transition: background 0.2s linear;
+    overflow: hidden;
+}
+
+.modo {
+    margin: 15px 50px 15px 0px;
+    display: flex;
+    justify-content: right;
+}
+
+.dark {
+    background-color: rgb(51, 50, 50);
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.label {
+    background-color: #585858;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    height: 24px;
+    width: 65px;
+    transform: scale(1.7);
+}
+
+.label .bola {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 20px;
+    width: 23px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .bola {
+    transform: translateX(38px);
+}
+
+.fa-moon {
+    color: #f1c40f;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
+
+.dark h1 {
+    color: white;
+}
+
+.dark .cabecalho {
+    background-color: #00c3ff;
+}
+
+
+
+.dark .conteudo p {
+    color: white;
+}
+.dark .sub-menu{
+    background: #252525;
+}
+.dark .sub-menu p{
+    color: #fff;
+}
+.dark .sub-menu h2{
+    color: #fff;
+}
+.dark .sub-menu span{
+    color: #fff;
+}
+.dark ion-icon{
+    color: #fff;
+}
+.imagem{
+    cursor: pointer;
+    height: 40px;
+    width: 40px; 
+    border-radius: 50%;
+    border: 2px solid rgb(184, 182, 182);
+    background: white;
+}
+.hidao {
+    background: #252525;
+}
+.produto {
+    color: #eeeeee;
+}
+.produto::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width .3s;
+}
+
+.produto:hover::after {
+    width: 100%;
+    transition: width .2s;
+}
+.hidden {
+    display: none;
+}
+.icone {
+    color: #eeeeee;
+    font-size: 25px;
+}
+#dropdown {
+    background-color: #363636;
+    margin-top: 10px;
+    padding: 15px 8px;
+}
+.meio {
+    display: flex;
+    color: white;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+.meio2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.meio3 {
+    display: flex;
+    color: white;
+    justify-content: center;
+
+}
+.meio4{
+    margin-top: 3px;
+}
+.meio3:hover {
+    color: #a7a6a6;
+}
+.meio2:hover {
+    color: #ffffff;
+    background: #4F4F4F;
+}
+.menu {
+    background: white;
+}
+.menu:hover {
+    color: #a7a6a6;
+}
+ion-icon {
+    font-size: 34px;
+
+}
+.fundo-imagem{
+    background: transparent;
+}
+.menu-azul {
+    background-color: #a7a6a6 !important;
+}
+
+.logado .icone {
+    display: none;
+}
+#menu-icon{
+    color: white;
+}
+.sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    width: 300px;
+    max-height: 0px;
+    overflow: hidden;
+    transform: max-height 0.5s;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+.sub-menu{
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info h3{
+    font-weight: 500;
+}
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0px 10px;
+}
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+.sub-menu-link p{
+    margin-left: 10px;
+    width: 100%;
+}
+.sub-menu-link img{
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+.sub-menu-link span{
+    font-size: 20px;
+    transition: transform 0.5s;
+}
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+.sub-menu-link:hover p{
+    font-weight: 600;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 420px){
+    .modo{
+        margin: 15px 0px 15px 0px;
+    }
+    .label{
+        height: 16px;
+        width: 40px;
+    }
+    .label .bola{
+        top: 2px;
+        left: 2px;
+        height: 12px;
+        width: 12px;
+    }
+    .checkbox:checked + .label .bola {
+        transform: translateX(23.5px);
+    }
+    .fa-moon{
+        font-size: 9px;
+    }
+    .fa-sun{
+        font-size: 9px;
+    }
+    .fa-image{
+        width: 40px;
+    }
+    .meio3 {
+        font-size: 13px; /* Tamanho ajustado para texto do meio3 em telas menores */
+    }
+    .meio3 ion-icon[name="person-circle-outline"] {
+        font-size: 23px;
+    }
+    
+}
