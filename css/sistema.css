@@ -1,0 +1,32 @@
+body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; transition: background-color 0.3s, color 0.3s; }
+        body.dark-mode { background-color: #121212; color: #e0e0e0; }
+        .meioh1 { text-align: center; margin-top: 20px; }
+        .table button { border: none; padding: 8px; border-radius: 50%; cursor: pointer; transition: background-color 0.3s; }
+        .icon-search { background-color: #28a745; padding: 10px; border-radius: 50%; color: white; }
+        .icon-edit { background-color: #28a745; padding: 10px; border-radius: 50%; color: white; }
+        .icon-delete { background-color: #dc3545; padding: 10px; border-radius: 50%; color: white; }
+        .icon-image { background-color: #6c757d; padding: 10px; border-radius: 50%; color: white; }
+        .table { width: 90%; margin: 20px auto; border-collapse: collapse; background-color: white; color: #000000; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, color 0.3s; }
+        body.dark-mode .table { background-color: #2d2d2d; color: #ffffff; }
+        .table th, .table td { padding: 12px; border: 1px solid #ddd; text-align: center; transition: background-color 0.3s, color 0.3s; }
+        body.dark-mode .table th, body.dark-mode .table td { border-color: #444; }
+        .table th { background-color: #28a745; color: white; }
+        body.dark-mode .table th { background-color: #218838; }
+        .table td img { border-radius: 5px; transition: transform 0.3s; }
+        .table td img:hover { transform: scale(1.1); }
+        .box-search { display: flex; justify-content: center; margin-bottom: 20px; }
+        .box-search input { width: 250px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px; background-color: white; color: #333; transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
+        body.dark-mode .box-search input { background-color: #333; color: #e0e0e0; border-color: #555; }
+        .box-search button { background-color: #28a745; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; }
+        .box-search button:hover { background-color: #218838; }
+        body.dark-mode .box-search button { background-color: #218838; }
+        .menu-links { position: absolute; top: 100px; right: 10px; display: flex; gap: 15px; }
+        .menu-links a { text-decoration: none; color: #28a745; font-weight: bold; padding: 8px 12px; border-radius: 5px; transition: background-color 0.3s, color 0.3s; }
+        body.dark-mode .menu-links a { color: #28a745; }
+        .menu-links a:hover { background-color: #28a745; color: white; }
+        body.dark-mode .menu-links a:hover { background-color: #218838; }
+        #theme-switch { position: fixed; top: 20px; right: 20px; background: none; border: none; cursor: pointer; padding: 10px; border-radius: 50%; transition: background-color 0.3s; }
+        #theme-switch:hover { background-color: rgba(40, 167, 69, 0.1); }
+        body.dark-mode #theme-switch:hover { background-color: rgba(33, 136, 56, 0.1); }
+        .table tr:hover { background-color: rgba(40, 167, 69, 0.1); }
+        body.dark-mode .table tr:hover { background-color: rgba(33, 136, 56, 0.1); }

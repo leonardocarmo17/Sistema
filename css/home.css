@@ -1,0 +1,189 @@
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #000;
+    --header-bg: #333;
+    --nav-bg: #333;
+    --nav-text: white;
+}
+
+body.dark-mode {
+    --bg-color: #222;
+    --text-color: #fff;
+    --header-bg: #111;
+    --nav-bg: #111;
+    --nav-text: #ddd;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    background: var(--header-bg);
+    padding: 15px;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto; /* Empurra o profile para a direita */
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-right: 50px;
+}
+
+.login-btn {
+    color: white;
+    background-color: rgb(8, 139, 30);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 50px;
+    margin-top: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-left: 20px; /* Espaçamento entre o botão e a imagem do perfil */
+}
+
+.login-btn:hover {
+    background-color: rgb(7, 168, 42);
+}
+
+.sub-menu-wrap {
+    display: none;
+    position: absolute;
+    top: 80px;
+    width: 250px;
+    right: 0;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.sub-menu-wrap p {
+    color: black;
+    font-size: 15px;
+    text-align: center;
+}
+
+.linha {
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.sub-menu-wrap.open-menu {
+    display: block;
+}
+
+.sub-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #ddd;
+}
+
+.sub-menu a:hover {
+    background: #f4f4f4;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+/* Responsividade */
+@media screen and (max-width: 550px) {
+    .menu-button {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .sub-menu-wrap {
+        top: 62px;
+    }
+
+    .profile {
+        margin-left: 0; /* Remove o margin-left no mobile */
+    }
+
+    .login-btn {
+        margin-left: 10px; /* Ajusta o espaçamento no mobile */
+    }
+}

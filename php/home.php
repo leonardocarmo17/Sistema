@@ -1,0 +1,78 @@
+<?php
+session_start();
+include_once('conexao.php');
+
+$usuario_logado = false;
+$user_data = [];
+
+if (isset($_SESSION['nome']) && isset($_SESSION['email'])) {
+    $usuario_logado = true;
+    $email = $_SESSION['email'];
+    
+    $sqlSelect = "SELECT id, nome, niveldeacesso, path FROM usuarios WHERE email = '$email'";
+    $result = $conexao->query($sqlSelect);
+    
+    if ($result && $result->num_rows > 0) {
+        $user_data = $result->fetch_assoc();
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/modo.css">
+    <script type="text/javascript" src="../js/modo.js" defer></script>
+    <title>Página Inicial</title>
+    
+</head>
+<body class="darkmode">
+    <header>
+        <nav>
+            <div>
+                <img src="../img/logoFinal.png" alt="Logo" width="50">
+            </div>
+            <button class="menu-button" onclick="toggleNav()">☰</button>
+            
+            <div class="nav-links" id="navLinks">
+                <ul>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="profile">
+                <?php if ($usuario_logado): ?>
+                    <div onclick="toggleMenu()">
+                        <img src="<?php echo !empty($user_data['path']) ? htmlspecialchars($user_data['path']) : '../img/user.png'; ?>" alt="User">
+                    </div>
+                    <div class="sub-menu-wrap" id="subMenu">
+                        <div class="sub-menu">
+                            <p>Bem-vindo, <strong><?php echo htmlspecialchars($_SESSION['nome']); ?></strong></p>
+                            <div class="linha"></div>
+                            <?php if ($user_data['niveldeacesso'] == 2 || $user_data['niveldeacesso'] == 3): ?>
+                                <a href="sistema.php">Sistema</a>
+                            <?php endif; ?>
+                            <a href="DadosCliente.php?id=<?php echo $user_data['id']; ?>">Editar Perfil</a>
+                            <a href="sair.php">Sair</a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    
+                    <a href="login.php" class="login-btn">Entrar</a>
+                <?php endif; ?>
+            </div>
+            <button id="theme-switch">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="blue"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="blue"><path d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/></svg>
+    </button>
+        </nav>
+    </header>
+    <script src="../js/home.js"></script>
+</body>
+</html>

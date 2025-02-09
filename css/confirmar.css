@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 50px;
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+}
+.sucesso {
+    color: green;
+    font-size: 18px;
+    font-weight: bold;
+}
+.erro {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+.link-voltar {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    background: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.link-voltar:hover {
+    background: #218838;
+}

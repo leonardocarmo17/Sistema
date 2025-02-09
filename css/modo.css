@@ -1,0 +1,81 @@
+:root {
+    --base-color: white;
+    --base-variant: #e8e9ed;
+    --text-color: #111528;
+    --secondary-text: #232738;
+    --primary-color: #3a435d;
+    --acent-color: #0071ff;
+    --icon-color: #3a435d; /* Cor padrão do ícone */
+}
+
+.darkmode {
+    --base-color: #070b1d;
+    --base-variant: #101425;
+    --text-color: #ffffff;
+    --secondary-text: #a4a5b8;
+    --primary-color: #3a435d;
+    --acent-color: #0071ff;
+    --icon-color: #ffffff; /* Ícone branco no dark mode */
+}
+
+/* Reset básico */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    font-family: Poppins;
+}
+
+body {
+    background-color: var(--base-color);
+    color: var(--text-color);
+    overflow-x: hidden; /* Evita barras de rolagem horizontais */
+}
+
+/* Botão de alternância de tema */
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Use fixed para posicionar o botão */
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none; /* Remove bordas padrão */
+    outline: none; /* Remove o contorno ao focar */
+}
+
+/* Ícones dentro do botão */
+#theme-switch svg {
+    fill: var(--icon-color); /* Cor dinâmica do ícone */
+    width: 24px;
+    height: 24px;
+    transition: fill 0.3s ease; /* Animação suave da cor */
+}
+
+/* Ocultar o segundo ícone por padrão */
+#theme-switch svg:last-child {
+    display: none;
+}
+
+/* Exibir o ícone correto no modo escuro */
+.darkmode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block;
+}
