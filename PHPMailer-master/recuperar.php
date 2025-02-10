@@ -34,13 +34,13 @@ if (isset($_POST['ok'])) {
                 
                 $mail->isSMTP();
                 $mail->SMTPAuth = true;
-                $mail->Username   = 'leonardocarmoc@gmail.com';  //Seu email
-                $mail->Password   = 'nsse ypiy twyt irfa'; // Codigo para ser enviado, senha gerada pelo google
+                $mail->Username   = '';  //Seu email
+                $mail->Password   = ''; // Codigo para ser enviado, senha gerada pelo google
                 $mail->SMTPSecure = 'tls'; 
                 $mail->Host = 'smtp.gmail.com';
                 $mail->Port = 587;
                 
-                $mail->setFrom('leonardocarmoc@gmail.com', 'Recupere sua conta'); // primeiro é o email, e depois o nome que você quer
+                $mail->setFrom('', 'Recupere sua conta'); // primeiro é o email, e depois o nome que você quer
                 $mail->addAddress($email, $nome);
                 $mail->isHTML(true);
                 $mail->Subject = $nome . ', Senha nova';

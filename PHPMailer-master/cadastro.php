@@ -62,8 +62,8 @@ if (isset($_POST['submit'])) {
 
                 $mail->isSMTP();
                 $mail->SMTPAuth = true;
-                $mail->Username = 'leonardocarmoc@gmail.com';  //Seu email
-                $mail->Password = 'nsse ypiy twyt irfa'; // Codigo para ser enviado, senha gerada pelo google
+                $mail->Username = '';  //Seu email
+                $mail->Password = ''; // Codigo para ser enviado, senha gerada pelo google
                 $mail->SMTPSecure = 'tls'; 
                 $mail->Host = 'smtp.gmail.com';
                 $mail->Port = 587;
@@ -140,7 +140,7 @@ if (isset($_POST['submit'])) {
                 <p>Estamos felizes em ter você aqui! Para ativar sua conta, basta clicar no botão abaixo.</p>
             </div>
             <div class="confirma">
-                <a href="http://sistemabasico.great-site.net/../PHPMailer-master/confirmar.php?token=' . $token . '">
+                <a href="' . $token . '">
                     Verificar Conta
                 </a>
             </div>
