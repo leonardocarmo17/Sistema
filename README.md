@@ -33,19 +33,12 @@ Este projeto possui três categorias de usuários, cada uma com diferentes níve
 - **E-mail**: leonardocarmoc5@gmail.com
 - **Senha**: leonardocarmoc5@gmail.com
 
-### Dono
+### Owner
 - **E-mail**: Admin@gmail.com
 - **Senha**: admin
 
 ---
 
-## Acesso ao Banco de Dados
+### Observação
 
-Para visualizar todas as contas registradas no banco de dados, acesse o seguinte link:  
-[Visualizar Banco de Dados](http://sistemabasico.great-site.net/dev/mostrar.php)
-
----
-
-## Link de Acesso ao Projeto
-
-[Acessar o Projeto](http://sistemabasico.great-site.net)
+- Atualmente o site está offline, em breve estará no online novamente.
